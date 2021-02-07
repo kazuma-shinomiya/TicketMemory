@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Abj-Gx-jub">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--チケット一覧-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicketMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tUW-Kg-kNn">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="qCB-oF-c6J"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hGk-Vg-zcE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tUW-Kg-kNn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="S6s-h5-uZ1"/>
+                            <constraint firstItem="tUW-Kg-kNn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bGe-cA-b9q"/>
+                            <constraint firstItem="tUW-Kg-kNn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ccG-Di-GVc"/>
+                            <constraint firstItem="tUW-Kg-kNn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rvd-gL-XeM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="チケット一覧" id="0ZC-rj-dqB"/>
+                    <connections>
+                        <outlet property="ticketListTableView" destination="tUW-Kg-kNn" id="4yO-xw-wQj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1634.7826086956522" y="-447.32142857142856"/>
+        </scene>
+        <!--Edit Ticket View Controller-->
+        <scene sceneID="0Oi-xb-rXM">
+            <objects>
+                <viewController storyboardIdentifier="EditTicketVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nk2-eG-TT0" customClass="EditTicketViewController" customModule="TicketMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KDZ-TG-4He">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="場所の名前(例：◯◯動物園)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-XN-NXy">
+                                <rect key="frame" x="30" y="109" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="a1f-7S-ALd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="placeAutoComplete:" destination="Nk2-eG-TT0" eventType="editingDidBegin" id="MmJ-yR-4Ps"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日付" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4i8-VD-GaD">
+                                <rect key="frame" x="30" y="239" width="354" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ug3-2j-D3H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album" translatesAutoresizingMaskIntoConstraints="NO" id="ibs-aa-dji">
+                                <rect key="frame" x="57" y="513" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="PYK-uv-fll"/>
+                                    <constraint firstAttribute="height" constant="150" id="tF7-5O-Kiz"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhl-eN-Utv">
+                                <rect key="frame" x="97" y="363" width="90" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Lcq-4f-Qb0"/>
+                                    <constraint firstAttribute="width" constant="90" id="xng-Ub-MeK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="-73" minY="60" maxX="-30" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="55"/>
+                                <state key="normal" title="写真を撮る" image="camera">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCamera:" destination="Nk2-eG-TT0" eventType="touchUpInside" id="Nn2-Ty-Woj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チケット写真の選択" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlO-nD-nB3">
+                                <rect key="frame" x="115.5" y="319" width="183.5" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="WQs-yB-Ivc"/>
+                                    <constraint firstAttribute="width" constant="183.5" id="pIn-eT-8A3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfq-u9-uFE">
+                                <rect key="frame" x="227" y="363" width="90" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="5cB-Nj-RwL"/>
+                                    <constraint firstAttribute="width" constant="90" id="uM1-t4-yg3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="-67" minY="64" maxX="-21" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="21" minY="20" maxX="18" maxY="50"/>
+                                <state key="normal" title="アルバム" image="album">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onAlbum:" destination="Nk2-eG-TT0" eventType="touchUpInside" id="BnA-lk-nJS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW1-m1-b17">
+                                <rect key="frame" x="359" y="64" width="25" height="25"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="1zH-RL-S3r"/>
+                                    <constraint firstAttribute="width" constant="25" id="cb5-GG-7S3"/>
+                                </constraints>
+                                <state key="normal" image="check">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="editTicket:" destination="Nk2-eG-TT0" eventType="touchUpInside" id="Cua-dJ-wtl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Bb-lr-H1q">
+                                <rect key="frame" x="30" y="64" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Om4-rq-1R5"/>
+                                    <constraint firstAttribute="width" constant="25" id="rLf-dH-9uW"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="Nk2-eG-TT0" eventType="touchUpInside" id="MfU-PZ-lhy"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="住所" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0e-17-st6">
+                                <rect key="frame" x="30" y="179" width="354" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="TxZ-U5-yie"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q5C-Hu-73n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b0e-17-st6" firstAttribute="leading" secondItem="Q5C-Hu-73n" secondAttribute="leading" constant="30" id="AGD-nS-hy3"/>
+                            <constraint firstItem="5Bb-lr-H1q" firstAttribute="top" secondItem="Q5C-Hu-73n" secondAttribute="top" constant="20" id="BN7-Qp-iop"/>
+                            <constraint firstItem="zr2-XN-NXy" firstAttribute="top" secondItem="aW1-m1-b17" secondAttribute="bottom" constant="20" id="BRQ-dl-6Ro"/>
+                            <constraint firstItem="Q5C-Hu-73n" firstAttribute="trailing" secondItem="zr2-XN-NXy" secondAttribute="trailing" constant="30" id="DuP-Zp-7wZ"/>
+                            <constraint firstItem="b0e-17-st6" firstAttribute="centerX" secondItem="KDZ-TG-4He" secondAttribute="centerX" id="Fq2-Z4-6kG"/>
+                            <constraint firstItem="ibs-aa-dji" firstAttribute="centerX" secondItem="KDZ-TG-4He" secondAttribute="centerX" id="GXs-ro-Lp4"/>
+                            <constraint firstItem="4i8-VD-GaD" firstAttribute="top" secondItem="b0e-17-st6" secondAttribute="bottom" constant="20" id="J4R-Yx-1FT"/>
+                            <constraint firstItem="Q5C-Hu-73n" firstAttribute="trailing" secondItem="aW1-m1-b17" secondAttribute="trailing" constant="30" id="LWG-j5-Lqw"/>
+                            <constraint firstItem="ibs-aa-dji" firstAttribute="top" secondItem="Xhl-eN-Utv" secondAttribute="bottom" constant="30" id="MHj-ao-8mH"/>
+                            <constraint firstItem="4i8-VD-GaD" firstAttribute="leading" secondItem="Q5C-Hu-73n" secondAttribute="leading" constant="30" id="PSE-Jm-lDM"/>
+                            <constraint firstItem="aW1-m1-b17" firstAttribute="top" secondItem="Q5C-Hu-73n" secondAttribute="top" constant="20" id="XJ5-jZ-6jt"/>
+                            <constraint firstItem="Wfq-u9-uFE" firstAttribute="top" secondItem="VlO-nD-nB3" secondAttribute="bottom" constant="20" id="bxO-qz-yln"/>
+                            <constraint firstItem="Xhl-eN-Utv" firstAttribute="centerX" secondItem="KDZ-TG-4He" secondAttribute="centerX" constant="-65" id="eZ9-t3-vZE"/>
+                            <constraint firstItem="4i8-VD-GaD" firstAttribute="centerX" secondItem="KDZ-TG-4He" secondAttribute="centerX" id="j3l-Bb-NGi"/>
+                            <constraint firstItem="Q5C-Hu-73n" firstAttribute="trailing" secondItem="b0e-17-st6" secondAttribute="trailing" constant="30" id="jA7-9w-hUN"/>
+                            <constraint firstItem="5Bb-lr-H1q" firstAttribute="leading" secondItem="Q5C-Hu-73n" secondAttribute="leading" constant="30" id="jTx-CX-cjE"/>
+                            <constraint firstItem="VlO-nD-nB3" firstAttribute="centerX" secondItem="KDZ-TG-4He" secondAttribute="centerX" id="juc-EM-fAA"/>
+                            <constraint firstItem="zr2-XN-NXy" firstAttribute="leading" secondItem="Q5C-Hu-73n" secondAttribute="leading" constant="30" id="m72-uL-zc7"/>
+                            <constraint firstItem="zr2-XN-NXy" firstAttribute="centerX" secondItem="KDZ-TG-4He" secondAttribute="centerX" id="mDN-cs-xUm"/>
+                            <constraint firstItem="Xhl-eN-Utv" firstAttribute="top" secondItem="VlO-nD-nB3" secondAttribute="bottom" constant="20" id="nOs-Aa-cKp"/>
+                            <constraint firstItem="zr2-XN-NXy" firstAttribute="top" secondItem="5Bb-lr-H1q" secondAttribute="bottom" constant="20" id="o3H-W2-7Kf"/>
+                            <constraint firstItem="b0e-17-st6" firstAttribute="top" secondItem="zr2-XN-NXy" secondAttribute="bottom" constant="20" id="peU-hI-d0S"/>
+                            <constraint firstItem="ibs-aa-dji" firstAttribute="top" secondItem="Wfq-u9-uFE" secondAttribute="bottom" constant="30" id="q6c-g4-N2d"/>
+                            <constraint firstItem="VlO-nD-nB3" firstAttribute="top" secondItem="4i8-VD-GaD" secondAttribute="bottom" constant="40" id="r81-Tm-MYA"/>
+                            <constraint firstItem="Wfq-u9-uFE" firstAttribute="centerX" secondItem="KDZ-TG-4He" secondAttribute="centerX" constant="65" id="wbI-P5-hak"/>
+                            <constraint firstItem="Q5C-Hu-73n" firstAttribute="trailing" secondItem="4i8-VD-GaD" secondAttribute="trailing" constant="30" id="yTN-eY-Pai"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="adressTextField" destination="b0e-17-st6" id="w5a-Xk-2Sj"/>
+                        <outlet property="albumButton" destination="Wfq-u9-uFE" id="JTT-bG-knE"/>
+                        <outlet property="cameraButton" destination="Xhl-eN-Utv" id="g1Y-Nf-1k6"/>
+                        <outlet property="dateTextFiled" destination="4i8-VD-GaD" id="jxi-s5-CHf"/>
+                        <outlet property="placeNameTextField" destination="zr2-XN-NXy" id="3cV-KJ-ljA"/>
+                        <outlet property="ticketImageView" destination="ibs-aa-dji" id="4Ne-Pf-QSi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wdz-jQ-0dh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2354" y="-776"/>
+        </scene>
+        <!--Add Ticket View Controller-->
+        <scene sceneID="Duh-fY-jMY">
+            <objects>
+                <viewController storyboardIdentifier="AddTicketVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RFg-Zh-PzT" customClass="AddTicketViewController" customModule="TicketMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lHt-Rl-V2U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="場所の名前(例：◯◯動物園)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5TN-gF-QB3">
+                                <rect key="frame" x="30" y="109" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="v0v-PV-NNe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="placeAutoComplete:" destination="RFg-Zh-PzT" eventType="editingDidBegin" id="2Jz-Ww-0hB"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日付" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y5G-JM-aM5">
+                                <rect key="frame" x="30" y="239" width="354" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3WJ-PD-zrI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album" translatesAutoresizingMaskIntoConstraints="NO" id="hLd-MB-hQD">
+                                <rect key="frame" x="57" y="513" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="J1x-0e-EW5"/>
+                                    <constraint firstAttribute="height" constant="150" id="e9l-7B-8bB"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aah-EI-0EJ">
+                                <rect key="frame" x="97" y="363" width="90" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="zJq-Y0-ukL"/>
+                                    <constraint firstAttribute="width" constant="90" id="zb0-gP-UNI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="-73" minY="60" maxX="-30" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="55"/>
+                                <state key="normal" title="写真を撮る" image="camera">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCamera:" destination="RFg-Zh-PzT" eventType="touchUpInside" id="MSy-Yf-gyX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チケット写真の選択" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh3-dV-csw">
+                                <rect key="frame" x="115.5" y="319" width="183.5" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="9is-Mo-npd"/>
+                                    <constraint firstAttribute="width" constant="183.5" id="bF3-Vu-GwX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DV0-qf-0XV">
+                                <rect key="frame" x="227" y="363" width="90" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="8n8-Nt-K70"/>
+                                    <constraint firstAttribute="height" constant="120" id="v4J-9m-xeS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="-67" minY="64" maxX="-21" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="21" minY="20" maxX="18" maxY="50"/>
+                                <state key="normal" title="アルバム" image="album">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onAlbum:" destination="RFg-Zh-PzT" eventType="touchUpInside" id="QHf-Pw-G0k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHF-3H-CgF">
+                                <rect key="frame" x="359" y="64" width="25" height="25"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Bmf-ah-ayD"/>
+                                    <constraint firstAttribute="width" constant="25" id="zKp-bB-8GI"/>
+                                </constraints>
+                                <state key="normal" image="check">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTicket:" destination="RFg-Zh-PzT" eventType="touchUpInside" id="lyp-tp-p3B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sae-Ij-41f">
+                                <rect key="frame" x="30" y="64" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="T41-od-Qt9"/>
+                                    <constraint firstAttribute="height" constant="25" id="o0Q-vc-1XX"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="RFg-Zh-PzT" eventType="touchUpInside" id="jzg-5o-T10"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="住所" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-ZP-Npz">
+                                <rect key="frame" x="30" y="179" width="354" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RXG-3q-Hge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lE4-OT-gjg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TmH-ZP-Npz" firstAttribute="centerX" secondItem="lHt-Rl-V2U" secondAttribute="centerX" id="15d-B6-vP6"/>
+                            <constraint firstItem="Y5G-JM-aM5" firstAttribute="top" secondItem="TmH-ZP-Npz" secondAttribute="bottom" constant="20" id="3fp-VX-CeG"/>
+                            <constraint firstItem="hLd-MB-hQD" firstAttribute="centerX" secondItem="lHt-Rl-V2U" secondAttribute="centerX" id="5LN-eX-G7e"/>
+                            <constraint firstItem="aah-EI-0EJ" firstAttribute="centerX" secondItem="lHt-Rl-V2U" secondAttribute="centerX" constant="-65" id="5dc-Ym-jz2"/>
+                            <constraint firstItem="iHF-3H-CgF" firstAttribute="top" secondItem="lE4-OT-gjg" secondAttribute="top" constant="20" id="8en-DH-QmH"/>
+                            <constraint firstItem="lE4-OT-gjg" firstAttribute="trailing" secondItem="5TN-gF-QB3" secondAttribute="trailing" constant="30" id="FeP-H6-B2w"/>
+                            <constraint firstItem="lE4-OT-gjg" firstAttribute="trailing" secondItem="Y5G-JM-aM5" secondAttribute="trailing" constant="30" id="L8g-03-Ooa"/>
+                            <constraint firstItem="Y5G-JM-aM5" firstAttribute="leading" secondItem="lE4-OT-gjg" secondAttribute="leading" constant="30" id="LU7-5b-vPd"/>
+                            <constraint firstItem="Sae-Ij-41f" firstAttribute="top" secondItem="lE4-OT-gjg" secondAttribute="top" constant="20" id="M3j-65-5UB"/>
+                            <constraint firstItem="Y5G-JM-aM5" firstAttribute="centerX" secondItem="lHt-Rl-V2U" secondAttribute="centerX" id="MsN-Tr-fzf"/>
+                            <constraint firstItem="DV0-qf-0XV" firstAttribute="centerX" secondItem="lHt-Rl-V2U" secondAttribute="centerX" constant="65" id="RaF-zj-28N"/>
+                            <constraint firstItem="hLd-MB-hQD" firstAttribute="top" secondItem="aah-EI-0EJ" secondAttribute="bottom" constant="30" id="SQO-8U-xds"/>
+                            <constraint firstItem="Mh3-dV-csw" firstAttribute="top" secondItem="Y5G-JM-aM5" secondAttribute="bottom" constant="40" id="W8v-Ry-pUS"/>
+                            <constraint firstItem="lE4-OT-gjg" firstAttribute="trailing" secondItem="iHF-3H-CgF" secondAttribute="trailing" constant="30" id="Wk2-km-NVV"/>
+                            <constraint firstItem="Mh3-dV-csw" firstAttribute="centerX" secondItem="lHt-Rl-V2U" secondAttribute="centerX" id="Wv4-iQ-kGU"/>
+                            <constraint firstItem="5TN-gF-QB3" firstAttribute="leading" secondItem="lE4-OT-gjg" secondAttribute="leading" constant="30" id="Yhy-yU-yX3"/>
+                            <constraint firstItem="TmH-ZP-Npz" firstAttribute="top" secondItem="5TN-gF-QB3" secondAttribute="bottom" constant="20" id="cGk-9H-7QK"/>
+                            <constraint firstItem="5TN-gF-QB3" firstAttribute="top" secondItem="iHF-3H-CgF" secondAttribute="bottom" constant="20" id="cZp-8Y-wht"/>
+                            <constraint firstItem="aah-EI-0EJ" firstAttribute="top" secondItem="Mh3-dV-csw" secondAttribute="bottom" constant="20" id="clk-H0-xNE"/>
+                            <constraint firstItem="5TN-gF-QB3" firstAttribute="centerX" secondItem="lHt-Rl-V2U" secondAttribute="centerX" id="dJb-ul-75u"/>
+                            <constraint firstItem="Sae-Ij-41f" firstAttribute="leading" secondItem="lE4-OT-gjg" secondAttribute="leading" constant="30" id="iir-0S-1NG"/>
+                            <constraint firstItem="5TN-gF-QB3" firstAttribute="top" secondItem="Sae-Ij-41f" secondAttribute="bottom" constant="20" id="npU-Q5-Ntx"/>
+                            <constraint firstItem="lE4-OT-gjg" firstAttribute="trailing" secondItem="TmH-ZP-Npz" secondAttribute="trailing" constant="30" id="pl2-7r-chz"/>
+                            <constraint firstItem="DV0-qf-0XV" firstAttribute="top" secondItem="Mh3-dV-csw" secondAttribute="bottom" constant="20" id="rjJ-IY-T0f"/>
+                            <constraint firstItem="TmH-ZP-Npz" firstAttribute="leading" secondItem="lE4-OT-gjg" secondAttribute="leading" constant="30" id="uGJ-gT-6h1"/>
+                            <constraint firstItem="hLd-MB-hQD" firstAttribute="top" secondItem="DV0-qf-0XV" secondAttribute="bottom" constant="30" id="wjI-qq-FMD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="adressTextField" destination="TmH-ZP-Npz" id="O31-SU-J1e"/>
+                        <outlet property="albumButton" destination="DV0-qf-0XV" id="8Ua-JT-81m"/>
+                        <outlet property="cameraButton" destination="aah-EI-0EJ" id="Mou-yc-UtY"/>
+                        <outlet property="dateTextFiled" destination="Y5G-JM-aM5" id="Mj6-ol-xx8"/>
+                        <outlet property="placeNameTextField" destination="5TN-gF-QB3" id="1mg-Nj-qxM"/>
+                        <outlet property="ticketImageView" destination="hLd-MB-hQD" id="AyX-Ar-o1f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jCD-k2-APQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353.6231884057975" y="-56.25"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RKP-X2-zCa">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Abj-Gx-jub" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yae-3l-LDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NV6-yG-JSj" kind="relationship" relationship="viewControllers" id="lSU-Vg-iLX"/>
+                        <segue destination="Lz2-xt-Dzw" kind="relationship" relationship="viewControllers" id="uHj-h1-ZuG"/>
+                        <segue destination="38p-zn-L7s" kind="relationship" relationship="viewControllers" id="xpd-hv-5hh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDM-hb-hmZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-197.10144927536234" y="113.83928571428571"/>
+        </scene>
+        <!--思い出の場所-->
+        <scene sceneID="5Ls-wE-Wu8">
+            <objects>
+                <viewController id="AFP-lL-d4U" customClass="MapViewController" customModule="TicketMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RAo-gs-FFq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="c25-WC-D94"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="思い出の場所" id="Brh-hd-ANh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="FNQ-HX-HyS">
+                            <color key="tintColor" red="0.99399465320000002" green="0.60039865969999995" blue="0.38852250579999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="reload:" destination="AFP-lL-d4U" id="dXX-Rx-ofb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJZ-4m-EHY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592.753623188406" y="958.92857142857133"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="UXl-MC-nPO">
+            <objects>
+                <viewController id="Lz2-xt-Dzw" customClass="GeminiViewController" customModule="TicketMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o6O-4W-tmD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-hn-GDT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f7o-O9-jPn">
+                                    <size key="itemSize" width="412" height="771"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="geminiCell" id="bZn-GT-N2M">
+                                        <rect key="frame" x="1" y="0.0" width="412" height="771"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4HH-1I-btN">
+                                            <rect key="frame" x="0.0" y="0.0" width="412" height="771"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wpd-Mw-aUF">
+                                                    <rect key="frame" x="86" y="123" width="263" height="422"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="412" height="771"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vhe-4Y-giH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="camera" catalog="system" id="cLt-Fl-5Gw"/>
+                    <connections>
+                        <outlet property="geminiCollectionView" destination="tmt-hn-GDT" id="qIw-5I-gES"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEz-zB-K7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="682.60869565217399" y="243.75"/>
+        </scene>
+        <!--チケット一覧-->
+        <scene sceneID="YSa-FI-qiK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NV6-yG-JSj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="チケット一覧" image="archivebox" catalog="system" id="Rlp-1C-ASo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MmZ-Sv-vWo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Coy-OL-mAe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6PH-iO-jDW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724.63768115942037" y="-447.32142857142856"/>
+        </scene>
+        <!--思い出の場所-->
+        <scene sceneID="Jd9-RD-hTn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="38p-zn-L7s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="思い出の場所" image="map" catalog="system" id="1ZD-or-iWe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pnT-NG-oHC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AFP-lL-d4U" kind="relationship" relationship="rootViewController" id="pI4-lH-CG5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCg-Ph-BNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="682.60869565217399" y="958.92857142857133"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="album" width="240" height="240"/>
+        <image name="archivebox" catalog="system" width="128" height="106"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
+        <image name="camera" width="240" height="240"/>
+        <image name="cancel" width="240" height="240"/>
+        <image name="check" width="240" height="240"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tUW-Kg-kNn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tUW-Kg-kNn">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -35,7 +34,14 @@
                             <constraint firstItem="tUW-Kg-kNn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rvd-gL-XeM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="チケット一覧" id="0ZC-rj-dqB"/>
+                    <navigationItem key="navigationItem" title="チケット一覧" id="0ZC-rj-dqB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Br4-35-lfK">
+                            <color key="tintColor" red="0.99399465320000002" green="0.60039865969999995" blue="0.38852250579999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="toAddTicketVC:" destination="BYZ-38-t0r" id="t82-eg-e24"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ticketListTableView" destination="tUW-Kg-kNn" id="4yO-xw-wQj"/>
                     </connections>
@@ -361,10 +367,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.99399465320000002" green="0.60039865969999995" blue="0.38852250579999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="NV6-yG-JSj" kind="relationship" relationship="viewControllers" id="lSU-Vg-iLX"/>
-                        <segue destination="Lz2-xt-Dzw" kind="relationship" relationship="viewControllers" id="uHj-h1-ZuG"/>
                         <segue destination="38p-zn-L7s" kind="relationship" relationship="viewControllers" id="xpd-hv-5hh"/>
                     </connections>
                 </tabBarController>
@@ -394,55 +400,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJZ-4m-EHY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1592.753623188406" y="958.92857142857133"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="UXl-MC-nPO">
-            <objects>
-                <viewController id="Lz2-xt-Dzw" customClass="GeminiViewController" customModule="TicketMemory" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o6O-4W-tmD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-hn-GDT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f7o-O9-jPn">
-                                    <size key="itemSize" width="412" height="771"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="geminiCell" id="bZn-GT-N2M">
-                                        <rect key="frame" x="1" y="0.0" width="412" height="771"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4HH-1I-btN">
-                                            <rect key="frame" x="0.0" y="0.0" width="412" height="771"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wpd-Mw-aUF">
-                                                    <rect key="frame" x="86" y="123" width="263" height="422"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="412" height="771"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="vhe-4Y-giH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="camera" catalog="system" id="cLt-Fl-5Gw"/>
-                    <connections>
-                        <outlet property="geminiCollectionView" destination="tmt-hn-GDT" id="qIw-5I-gES"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zEz-zB-K7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="682.60869565217399" y="243.75"/>
         </scene>
         <!--チケット一覧-->
         <scene sceneID="YSa-FI-qiK">
@@ -486,7 +443,6 @@
     <resources>
         <image name="album" width="240" height="240"/>
         <image name="archivebox" catalog="system" width="128" height="106"/>
-        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="camera" width="240" height="240"/>
         <image name="cancel" width="240" height="240"/>
         <image name="check" width="240" height="240"/>

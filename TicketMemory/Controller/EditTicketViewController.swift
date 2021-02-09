@@ -66,7 +66,10 @@ class EditTicketViewController: UIViewController {
         let fileURL = URL(string: ticketData[selectedId].imageURL)
         let filePath = fileURL?.path
         //ファイルの削除
-        try! FileManager.default.removeItem(atPath: filePath!)
+        if filePath != nil{
+            try? FileManager.default.removeItem(atPath: filePath!)
+        }
+        
         
         directory.saveImage(ImageView: ticketImageView)
         try! self.realm.write{

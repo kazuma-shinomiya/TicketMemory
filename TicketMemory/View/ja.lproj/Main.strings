@@ -1,0 +1,48 @@
+
+/* Class = "UINavigationItem"; title = "チケット一覧"; ObjectID = "0ZC-rj-dqB"; */
+"0ZC-rj-dqB.title" = "チケット一覧";
+
+/* Class = "UITabBarItem"; title = "思い出の場所"; ObjectID = "1ZD-or-iWe"; */
+"1ZD-or-iWe.title" = "思い出の場所";
+
+/* Class = "UITextField"; placeholder = "日付"; ObjectID = "4i8-VD-GaD"; */
+"4i8-VD-GaD.placeholder" = "日付";
+
+/* Class = "UITextField"; placeholder = "場所の名前(例：◯◯動物園)"; ObjectID = "5TN-gF-QB3"; */
+"5TN-gF-QB3.placeholder" = "場所の名前(例：◯◯動物園)";
+
+/* Class = "UINavigationItem"; title = "思い出の場所"; ObjectID = "Brh-hd-ANh"; */
+"Brh-hd-ANh.title" = "思い出の場所";
+
+/* Class = "UIButton"; normalTitle = "アルバム"; ObjectID = "DV0-qf-0XV"; */
+"DV0-qf-0XV.normalTitle" = "アルバム";
+
+/* Class = "UILabel"; text = "チケット写真の選択"; ObjectID = "Mh3-dV-csw"; */
+"Mh3-dV-csw.text" = "チケット写真の選択";
+
+/* Class = "UITabBarItem"; title = "チケット一覧"; ObjectID = "Rlp-1C-ASo"; */
+"Rlp-1C-ASo.title" = "チケット一覧";
+
+/* Class = "UITextField"; placeholder = "住所"; ObjectID = "TmH-ZP-Npz"; */
+"TmH-ZP-Npz.placeholder" = "住所";
+
+/* Class = "UILabel"; text = "チケット写真の選択"; ObjectID = "VlO-nD-nB3"; */
+"VlO-nD-nB3.text" = "チケット写真の選択";
+
+/* Class = "UIButton"; normalTitle = "アルバム"; ObjectID = "Wfq-u9-uFE"; */
+"Wfq-u9-uFE.normalTitle" = "アルバム";
+
+/* Class = "UIButton"; normalTitle = "写真を撮る"; ObjectID = "Xhl-eN-Utv"; */
+"Xhl-eN-Utv.normalTitle" = "写真を撮る";
+
+/* Class = "UITextField"; placeholder = "日付"; ObjectID = "Y5G-JM-aM5"; */
+"Y5G-JM-aM5.placeholder" = "日付";
+
+/* Class = "UIButton"; normalTitle = "写真を撮る"; ObjectID = "aah-EI-0EJ"; */
+"aah-EI-0EJ.normalTitle" = "写真を撮る";
+
+/* Class = "UITextField"; placeholder = "住所"; ObjectID = "b0e-17-st6"; */
+"b0e-17-st6.placeholder" = "住所";
+
+/* Class = "UITextField"; placeholder = "場所の名前(例：◯◯動物園)"; ObjectID = "zr2-XN-NXy"; */
+"zr2-XN-NXy.placeholder" = "場所の名前(例：◯◯動物園)";

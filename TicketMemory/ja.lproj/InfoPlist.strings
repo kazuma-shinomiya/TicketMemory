@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  TicketMemory
+
+  Created by Kazuma Shinomiya on 2021/02/09.
+  
+*/
+NSCameraUsageDescription = "アプリはカメラで撮影した写真を使用します。";
+NSPhotoLibraryUsageDescription = "アプリはPhotoLibraryで選択した写真を使用します。";
